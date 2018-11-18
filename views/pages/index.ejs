@@ -1,25 +1,38 @@
-<!DOCTYPE html>
+<!-- views/pages/index.ejs -->
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>CS313 Teach 09</title>
+    <% include ../partials/head %>
 </head>
-<body>
-    <h1>Teach 09</h1>
-    <form id="math" method="post" action="/math" >
-        <h2>Caclulate the result and display it</h2>
-        <input type="number" name="lhs" placeholder="operand" />
-        <input type="text" name="operator" placeholder="operator" />
-        <input type="number" name="rhs" placeholder="operand" />
-        <input type="submit" name="submit" value="Submit" />
-    </form>
-    <form id="mathservice" method="post" action="/math_service" >
-        <h2>Calculate the result and return JSON</h2>
-        <input type="number" name="lhs" placeholder="operand" />
-        <input type="text" name="operator" placeholder="operator" />
-        <input type="number" name="rhs" placeholder="operand" />
-        <input type="submit" name="submit" value="Submit" />
-    </form>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Welcome to templating using EJS</p>
+        </div>
+        <h2>Variable</h2>
+        <p>
+            <%= tagline %>
+        </p>
+        <ul>
+            <% drinks.forEach(function(drink) { %>
+                <li><%= drink.name %> - <%= drink.drunkness %></li>
+            <% }); %>
+        </ul>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
 </body>
+
 </html>

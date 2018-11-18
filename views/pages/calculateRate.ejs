@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Postal Rate Calculator</title>
+</head>
+<body>
+    <h1 class="pagetitle container">Postal Rate Calculator</h1>
+    <div class="container">
+        <form id="calculator" name="calculator" method="post" action="/calculateRate">
+            <label for="type">Select the parcel type:</label>
+            <br />
+            <select name="type" id="type">
+                <option name="type" id="stamped" value="stamped" <% if(type === "stamped") { %>selected="selected"<% } %>>Letter (Stamped)</option>
+                <option name="type" id="metered" value="metered" <% if(type === "metered") { %>selected="selected"<% } %>>Letter (Metered)</option>
+                <option name="type" id="largeEnvelope" value="largeEnvelope" <% if(type === "largeEnvelope") { %>selected="selected"<% } %>>Large Envelopes (Flats)</option>
+                <option name="type" id="fcPackage" value="fcPackage" <% if(type === "fcPackage") { %>selected="selected"<% } %>>First-Class Package Service - Retail</option>
+            </select>
+            <br />
+            <label for="weight">Weight in ounces</label>
+            <br />
+            <select id="weight" name="weight">
+                <option name="weight" id="1" value="1" <% if(weight === "1") { %>value="<%= weight %>"<% } %>>1</option>
+                <option name="weight" id="2" value="2" <% if(weight === "2") { %>value="<%= weight %>"<% } %>>2</option>
+                <option name="weight" id="3" value="3" <% if(weight === "3") { %>value="<%= weight %>"<% } %>>3</option>
+                <option name="weight" id="4" value="4" <% if(weight === "4") { %>value="<%= weight %>"<% } %>>4</option>
+                <option name="weight" id="5" value="5" <% if(weight === "5") { %>value="<%= weight %>"<% } %>>5</option>
+                <option name="weight" id="6" value="6" <% if(weight === "6") { %>value="<%= weight %>"<% } %>>6</option>
+                <option name="weight" id="7" value="7" <% if(weight === "7") { %>value="<%= weight %>"<% } %>>7</option>
+                <option name="weight" id="8" value="8" <% if(weight === "8") { %>value="<%= weight %>"<% } %>>8</option>
+                <option name="weight" id="9" value="9" <% if(weight === "9") { %>value="<%= weight %>"<% } %>>9</option>
+                <option name="weight" id="10" value="10" <% if(weight === "10") { %>value="<%= weight %>"<% } %>>10</option>
+            </select>
+            <br />
+            <input type="submit" id="submit" name="submit" class="btn btn-secondary" value="Calculate Rate" />
+        </form>
+        <div>
+            <% if(rate != null) { %>
+                <p>
+                    The rate is <%= rate %>.
+                </p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
